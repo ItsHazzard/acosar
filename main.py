@@ -21,12 +21,14 @@ def speak(text):
 def listen():
     with sr.Microphone() as source:
         time.sleep(2)
-        os.system('speak')
+        os.system('clear')
+        print("ACOSAR | RECOGNISING")
         recognizer.pause_threshold = 0.5
         audio = recognizer.listen(source)
     try:
         query = recognizer.recognize_google(audio, language='en-us')
-        os.system('hzd')
+        os.system('clear')
+        print("ACOSAR | LISTENING")
         print(f"\nYou | {query}")
         return query.lower()
     except Exception:
